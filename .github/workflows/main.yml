@@ -5,7 +5,7 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest # Используем сервер GitHub
     steps:
-      - name: Print greeting
-        run: echo "Привет! Аккаунт настроен и работает."
-      - name: Check my secret
-        run: echo "Мой секретный токен спрятан, вот он:"
+      - name: Run greeting
+        env:
+          MY_TOKEN: ${{ secrets.TT_BOT_TOKEN_TEST }} # Мы берем секрет из настроек и кладем в переменную
+        run: echo "Мой токен спрятан, вот он $MY_TOKEN"
