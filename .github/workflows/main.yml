@@ -1,0 +1,11 @@
+name: My First Action
+on: [push] # Запускать при каждом пуше кода
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # Используем сервер GitHub
+    steps:
+      - name: Print greeting
+        run: echo "Привет! Аккаунт настроен и работает."
+      - name: Check my secret
+        run: echo "Мой секретный токен спрятан, вот он: ${{ secrets.TT_BOT_TOKEN_TEST }}"
