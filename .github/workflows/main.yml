@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Install telebot
+        run: pip install pyTelegramBotAPI
       - name: Run greeting
         env:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN_TEST }} # Мы берем секрет из настроек и кладем в переменную
