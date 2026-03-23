@@ -5,7 +5,10 @@ on:
     # 06:30 UTC = 09:30 MSK, 2 = вторник
     - cron: '30 6 * * 2'
   workflow_dispatch:
-
+# Добавляем права на уровне всего файла (перед заданиями)
+permissions:
+  actions: write
+  contents: write
 jobs:
   run-fb-bot:
     runs-on: ubuntu-latest
@@ -21,6 +24,11 @@ jobs:
           # Убедись, что этот секрет тоже создан в Settings
           MY_TOKEN: ${{ secrets.FB_BOT_TOKEN }}
         run: python fb-ramec-bot.py
-
-      #- name: Keepalive Workflow
-        #uses: gautamkrishnar/keepalive-workflow@v2
+      - name: Keepalive
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          echo "Last run: $(date)" > last_run.txt
+          git add last_run.txt
+          git commit -m "Keepalive update [skip ci]" || echo "No changes to commit"
+          git push
