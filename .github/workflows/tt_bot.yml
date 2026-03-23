@@ -21,5 +21,5 @@ jobs:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN }}
         run: python tt-ramec-bot.py
 
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
+      #- name: Keepalive Workflow
+        #uses: gautamkrishnar/keepalive-workflow@v2
