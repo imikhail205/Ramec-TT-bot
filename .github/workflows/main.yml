@@ -8,4 +8,4 @@ jobs:
       - name: Print greeting
         run: echo "Привет! Аккаунт настроен и работает."
       - name: Check my secret
-        run: echo "Мой секретный токен спрятан, вот он: ${{ secrets.TT_BOT_TOKEN_TEST }}"
+        run: echo "Мой секретный токен спрятан, вот он:"
