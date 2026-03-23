@@ -1,6 +1,6 @@
 name: My First Action
-on: [push] # Запускать при каждом пуше кода
-
+on: #[push] # Запускать при каждом пуше кода
+  workflow_dispatch:
 jobs:
   Start-Bot:
     runs-on: ubuntu-latest # Используем сервер GitHub
