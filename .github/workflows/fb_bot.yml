@@ -1,0 +1,26 @@
+name: FB Post Bot
+
+on:
+  schedule:
+    # 06:30 UTC = 09:30 MSK, 2 = вторник
+    - cron: '30 6 * * 2'
+  workflow_dispatch:
+
+jobs:
+  run-fb-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install pyTelegramBotAPI
+
+      - name: Run FB Bot
+        env:
+          # Убедись, что этот секрет тоже создан в Settings
+          MY_TOKEN: ${{ secrets.FB_BOT_TOKEN }}
+        run: python fb-ramec-bot.py
+
+      - name: Keepalive Workflow
+        uses: gautamkrishnar/keepalive-workflow@v2
