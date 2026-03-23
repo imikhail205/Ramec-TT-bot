@@ -22,5 +22,5 @@ jobs:
           MY_TOKEN: ${{ secrets.FB_BOT_TOKEN }}
         run: python fb-ramec-bot.py
 
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
+      #- name: Keepalive Workflow
+        #uses: gautamkrishnar/keepalive-workflow@v2
