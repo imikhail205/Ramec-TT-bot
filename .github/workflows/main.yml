@@ -8,4 +8,4 @@ jobs:
       - name: Run greeting
         env:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN_TEST }} # Мы берем секрет из настроек и кладем в переменную
-        run: echo "Мой токен спрятан, вот он $MY_TOKEN"
+        run: python main.py
