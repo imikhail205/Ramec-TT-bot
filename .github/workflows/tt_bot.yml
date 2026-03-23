@@ -5,7 +5,10 @@ on:
     # 15:00 UTC = 18:00 MSK, 0 = воскресенье
     - cron: '0 15 * * 0'
   workflow_dispatch: # Кнопка для ручного запуска
-
+# Добавляем права на уровне всего файла (перед заданиями)
+permissions:
+  actions: write
+  contents: write
 jobs:
   run-tt-bot:
     runs-on: ubuntu-latest
@@ -20,6 +23,11 @@ jobs:
         env:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN }}
         run: python tt-ramec-bot.py
-
-      #- name: Keepalive Workflow
-        #uses: gautamkrishnar/keepalive-workflow@v2
+      - name: Keepalive
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          echo "Last run: $(date)" > last_run.txt
+          git add last_run.txt
+          git commit -m "Keepalive update [skip ci]" || echo "No changes to commit"
+          git push
