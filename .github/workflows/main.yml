@@ -5,6 +5,8 @@ jobs:
   Start-Bot:
     runs-on: ubuntu-latest # Используем сервер GitHub
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Run greeting
         env:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN_TEST }} # Мы берем секрет из настроек и кладем в переменную
