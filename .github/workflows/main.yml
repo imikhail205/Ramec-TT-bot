@@ -17,13 +17,11 @@ jobs:
         env:
           MY_TOKEN: ${{ secrets.TT_BOT_TOKEN_TEST }} # Мы берем секрет из настроек и кладем в переменную
         run: python tt-ramec-bot-test.py
-      - name: Update Last Run Date
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Keepalive
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           echo "Last run: $(date)" > last_run.txt
           git add last_run.txt
-          git commit -m "Update last run date [skip ci]"
+          git commit -m "Keepalive update [skip ci]" || echo "No changes to commit"
           git push
