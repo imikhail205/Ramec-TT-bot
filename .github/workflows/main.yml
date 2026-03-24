@@ -2,7 +2,8 @@ name: My First Action
 on: #[push] # Запускать при каждом пуше кода
   schedule:
     # 06:30 UTC = 09:30 MSK, 2 = вторник
-    - cron: '20 16 * * 1'
+    - cron: '10 09 * * 2'
+      timezone: 'Europe/Moscow'
   workflow_dispatch:
 # Добавляем права на уровне всего файла (перед заданиями)
 permissions:
