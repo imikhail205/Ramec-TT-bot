@@ -22,7 +22,7 @@ jobs:
       - name: Run FB Bot
         env:
           # Убедись, что этот секрет тоже создан в Settings
-          MY_TOKEN: ${{ secrets.FB_BOT_TOKEN }}
+          MY_TOKEN: ${{ secrets.TT_BOT_TOKEN }}
         run: python fb-ramec-bot.py
       - name: Keepalive
         run: |
