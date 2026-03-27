@@ -3,7 +3,7 @@ name: FB Post Bot
 on:
   schedule:
     # 06:30 UTC = 09:30 MSK, 2 = вторник
-    - cron: '30 6 * * 2'
+    - cron: '30 3 * * 2'
   workflow_dispatch:
 # Добавляем права на уровне всего файла (перед заданиями)
 permissions:
