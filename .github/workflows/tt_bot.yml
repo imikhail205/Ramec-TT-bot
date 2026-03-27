@@ -3,7 +3,7 @@ name: TT Post Bot
 on:
   schedule:
     # 15:00 UTC = 18:00 MSK, 0 = воскресенье
-    - cron: '0 15 * * 0'
+    - cron: '0 12 * * 0'
   workflow_dispatch: # Кнопка для ручного запуска
 # Добавляем права на уровне всего файла (перед заданиями)
 permissions:
