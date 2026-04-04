@@ -1,10 +1,10 @@
 name: Test-bot
-on: #[push] # Запускать при каждом пуше кода
-  schedule:
+on: [push] # Запускать при каждом пуше кода
+  #schedule:
     # 06:30 UTC = 09:30 MSK, 2 = вторник
-    - cron: '30 03 * * *'
+   # - cron: '30 03 * * *'
       #timezone: 'Europe/Moscow'
-  workflow_dispatch:
+  #workflow_dispatch:
 # Добавляем права на уровне всего файла (перед заданиями)
 permissions:
   actions: write
